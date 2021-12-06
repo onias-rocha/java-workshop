@@ -8,23 +8,14 @@ import java.util.Locale;
 
 public class Examples {
 
-    public static void testIndent(){
-        String text = "Hello World! \n This is testing a Java 12 feature.";
-        System.out.println(text);
+    public static void testMultipleCaseLabelsForSwitchExpressions(String player){
+        String result = switch (player) {
+            case "Messi", "Neymar" -> "PSG";
+            case "Dani Alves" -> "Barcelona";
+            default -> "the player was not recognized";
+        };
 
-        text = text.indent(4);
-        System.out.println(text);
-
-        text = text.indent(-10);
-        System.out.println(text);
-    }
-
-    public static void testTransform(){
-        String text = "Onias";
-        String transformed = text.transform(value ->
-                new StringBuilder(value).reverse().toString());
-
-        System.out.println(transformed);
+        System.out.println(result);
     }
 
     public static void testFileMismatchForIdenticalFiles(){
@@ -57,33 +48,25 @@ public class Examples {
         }
     }
 
-    public static void testMultipleCaseLabelsForSwitchExpressions(int number){
-        String result = "";
-        switch (number) {
-            case 1, 2:
-                result = "one or two";
-                break;
-            case 3:
-                result = "three";
-                break;
-            case 4, 5, 6:
-                result = "four or five or six";
-                break;
-            default:
-                    result = "unknown";
-        };
+    public static void testIndent(){
+        String text = "Hello World! \n This is testing a Java 12 feature.";
+        System.out.println(text);
 
-        System.out.println(result);
+        text = text.indent(4);
+        System.out.println(text);
+
+        text = text.indent(-10);
+        System.out.println(text);
     }
 
-    public static void testReturnWithoutBreak(int number){
-        String result = switch (number) {
-            case 1,2 -> "one or two";
-            default -> "one and two were the only options :)";
-        };
+    public static void testTransform(){
+        String text = "Onias";
+        String transformed = text.transform(value ->
+                new StringBuilder(value).reverse().toString());
 
-        System.out.println(result);
+        System.out.println(transformed);
     }
+
 
     public static void testCompactNumberFormatting(long number) {
         NumberFormat likesShort =
@@ -97,12 +80,15 @@ public class Examples {
         System.out.println(likesLong.format(number));
     }
 
-    public static String testSwitchUsingYield(int input){
-        return switch(input){
-            case 1, 2 -> {
-                yield "one or two";
+    public static String testSwitchUsingYield(String nflPlayer){
+        return switch(nflPlayer){
+            case "Russel Wilson", "DK Metcalf" -> {
+                yield "Seattle Seahawks";
             }
-            default -> "one and two were the only options :)";
+            case "Tom Brady" -> {
+                yield "Tampa Bay Buccaneers";
+            }
+            default -> "I don't know the player you have named :)";
         };
     }
 
@@ -111,11 +97,13 @@ public class Examples {
                 = "{\r\n" + "\"name\" : \"Onias\",\r\n" + "\"website\" : \"https://www.whatever.com/\"\r\n" + "}";
         System.out.println(JSON_STRING);
 
-        String TEXT_BLOCK_JSON = """
+        String TEXT_BLOCK_JSON =
+                """
                 {
                     "name" : "Onias",
                     "website" : "https://www.whatever.com/"
-                }""";
+                }
+                """;
         System.out.println(TEXT_BLOCK_JSON);
     }
 

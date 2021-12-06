@@ -1,7 +1,7 @@
 package com.mercadolivre;
 
 
-import static com.mercadolivre.Examples.testIndent;
+import static com.mercadolivre.Examples.*;
 
 public class Main {
 
@@ -9,29 +9,27 @@ public class Main {
 
     /** Java 12 **/
 
-        /** String New Methods **/
-//          testIndent();
-//          testTransform();
-
+        /** Switch Expressions **/
+//          testMultipleCaseLabelsForSwitchExpressions("Neymar");
 
         /** File Mismatch Method **/
 //          testFileMismatchForIdenticalFiles();
 //          testFileMismatchForDifferentFiles();
 
-        /** Switch Expressions **/
-//          testMultipleCaseLabelsForSwitchExpressions(1);
-//          testReturnWithoutBreak(3);
+        /** String New Methods **/
+//          testIndent();
+//          testTransform();
 
         /** Compact Number Formatting **/
-//          testCompactNumberFormatting(3000000l);
+//          testCompactNumberFormatting(300_000l);
 
     /** Java 13 **/
 
         /** Switch Using Yield **/
-//        var result = testSwitchUsingYield(4);
+//        var result = testSwitchUsingYield("Russel Wilson");
 //        System.out.println(result);
 
-        /** Text BLocks - JEP 355 **/
+//        /** Text Blocks - JEP 355 **/
 //        testTextBlocks();
 
     }
